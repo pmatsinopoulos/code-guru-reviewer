@@ -6,4 +6,5 @@ For that reason, it has some bad practices that we expect them to be flagged fro
 1. Create the dummy repository
 2. Install terraform
 3. AWS CodeGuru Reviewer Repository with terraform
-4.
+  1. CodeConnections Connection to GigHub (manual step on the AWS Console to Activate the connection)
+  2. GitHub Repository Association
