@@ -5,3 +5,5 @@ For that reason, it has some bad practices that we expect them to be flagged fro
 ---
 1. Create the dummy repository
 2. Install terraform
+3. AWS CodeGuru Reviewer Repository with terraform
+4.
