@@ -10,7 +10,6 @@ def main():
         data.append(i * 2)
 
     print("Processed data length: ", len(data))
-    utils.unused_function()
     time.sleep(10) # Unnecessary sleep
 
 if __name__ == "__main__":
