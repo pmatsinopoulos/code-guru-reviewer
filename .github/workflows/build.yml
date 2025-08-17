@@ -25,6 +25,7 @@ jobs:
       uses: aws-actions/configure-aws-credentials@v4
       with:
         role-to-assume: ${{ secrets.AWS_CODE_GURU_REVIEWER_ROLE_ARN }}
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-region: us-west-1
 
     - name: CodeGuru Reviewer
