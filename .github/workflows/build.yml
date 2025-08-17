@@ -1,0 +1,45 @@
+name: AWS CodeGuru Reviewer
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  codeguru-reviewer:
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+      contents: read
+      security-events: write
+
+    env:
+      AWS_REGION: eu-west-1
+      CODE_GURU_REVIEWER_S3_BUCKET: "codeguru-reviewer-pmatsinopoulos-code-guru-reviewer"
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: eu-west-1
+
+    - name: CodeGuru Reviewer
+      uses: aws-actions/codeguru-reviewer@v1.1
+      with:
+        build_path: .
+        s3_bucket: ${{ env.CODE_GURU_REVIEWER_S3_BUCKET }}
+
+    - name: Upload SARIF file
+      uses: github/codeql-action/upload-sarif@v3
+      if: always()
+      with:
+        sarif_file: codeguru-results.sarif.json
