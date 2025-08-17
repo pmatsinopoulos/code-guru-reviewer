@@ -16,7 +16,7 @@ jobs:
       security-events: write
 
     env:
-      AWS_REGION: us-west-1
+      AWS_REGION: eu-west-1
 
     steps:
     - name: Checkout code
