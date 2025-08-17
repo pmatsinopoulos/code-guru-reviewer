@@ -12,3 +12,4 @@ For that reason, it has some bad practices that we expect them to be flagged fro
 ---
 1. Integrate GitHub repository
    1. Create an S3 bucket with the `codeguru-reviewer-*` prefix.
+   1. Create the GitHub Actions Workflow
