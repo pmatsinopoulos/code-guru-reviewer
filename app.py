@@ -11,7 +11,7 @@ def main():
 
     print("Processed data length: ", len(data))
     utils.unused_function()
-    time.sleep(5) # Unnecessary sleep
+    time.sleep(10) # Unnecessary sleep
 
 if __name__ == "__main__":
     main()
